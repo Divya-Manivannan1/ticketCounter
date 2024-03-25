@@ -46,18 +46,18 @@ export const TicketCounter = () => {
         <span />
       )}
       <table>
-        <tr>
+        <tbody>
           <td>Open tickets:</td>
           <td>{totalTickets - closedTickets}</td>
-        </tr>
-        <tr>
+        </tbody>
+        <tbody>
           <td>Closed tickets:</td>
           <td>{closedTickets}</td>
-        </tr>
-        <tr>
+        </tbody>
+        <tbody>
           <td>Total tickets:</td>
           <td>{totalTickets}</td>
-        </tr>
+        </tbody>
       </table>
     </div>
   );

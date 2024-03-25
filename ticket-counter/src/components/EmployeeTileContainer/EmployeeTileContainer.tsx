@@ -1,26 +1,46 @@
-import { team } from "../../data/team.ts";
-import { Employee } from "../../types/teamType";
 import { FormEvent, useState } from "react";
+import { Employee } from "../../types/teamType";
 import { EmployeeTile } from "../EmployeeTile/EmployeeTile";
 import "./EmployeeTileContainer.scss";
 
-export const EmployeeTileContainer = () => {
-  const [searchInput, setSearchInput] = useState<string>("");
+type EmployeeTileContainerProps = {
+  employees: Employee[];
+  jobTitles: string[];
+};
 
-  const handleInput = (event: FormEvent<HTMLInputElement>) => {
-    const input = event.currentTarget.value.toLowerCase();
-    setSearchInput(input);
+export const EmployeeTileContainer = ({
+  employees,
+  jobTitles,
+}: EmployeeTileContainerProps) => {
+  const [searchInput, setSearchInput] = useState<[string, number]>(["", 0]);
+
+  const handleInput = (event: FormEvent<HTMLFormElement>) => {
+    const name = event.currentTarget.Name.value.toLowerCase();
+    const role = event.currentTarget.Role.value.toLowerCase();
+    setSearchInput([name, role]);
   };
 
-  const filteredEmployees: Employee[] = team.filter((emp) =>
-    emp.name.toLowerCase().includes(searchInput)
+  let filteredEmployees: Employee[] = employees.filter((emp) =>
+    emp.name.toLowerCase().includes(searchInput[0].toLowerCase())
   );
+  if (searchInput[1] != 0) {
+    filteredEmployees = filteredEmployees.filter((emp) =>
+      emp.role.toLowerCase().includes(jobTitles[searchInput[1]].toLowerCase())
+    );
+  }
 
   return (
     <main className="tickets-display">
-      <article className="search-options">
-        <input type="text" name="search by name" onChange={handleInput}></input>
-      </article>
+      <form className="search-options" onChange={handleInput}>
+        <label htmlFor="Name">Search by name:</label>
+        <input type="text" id="Name" autoComplete="off"></input>
+        <label htmlFor="Role">Search by role:</label>
+        <select id="Role">
+          {jobTitles.map((str, index) => (
+            <option value={index}>{str}</option>
+          ))}
+        </select>
+      </form>
       <article className="tile-container">
         {filteredEmployees.map((emp) => {
           return <EmployeeTile employee={emp} key={emp.id} />;
