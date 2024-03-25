@@ -1,0 +1,8 @@
+@use "../../assets/styles/variables.scss" as *;
+
+button {
+  background-color: $text-color;
+  border-radius: 0.5rem;
+  color: $background-color;
+  border: none;
+}

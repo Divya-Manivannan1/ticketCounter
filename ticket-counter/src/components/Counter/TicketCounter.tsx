@@ -45,7 +45,7 @@ export const TicketCounter = () => {
       ) : (
         <span />
       )}
-      <table>
+      <table className="ticket-counter__table">
         <tbody>
           <td>Open tickets:</td>
           <td>{totalTickets - closedTickets}</td>

@@ -1,6 +1,11 @@
+@use "./assets/styles/variables.scss" as *;
+
 .app {
   padding: 1rem;
-  h1 {
+
+  &__heading {
     text-align: center;
+    padding: 1rem;
+    text-decoration: solid underline $text-color;
   }
 }

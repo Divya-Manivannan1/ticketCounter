@@ -30,8 +30,8 @@ export const EmployeeTileContainer = ({
   }
 
   return (
-    <main className="tickets-display">
-      <form className="search-options" onChange={handleInput}>
+    <main className="tile-container">
+      <form className="tile-container__form" onChange={handleInput}>
         <label htmlFor="Name">Search by name:</label>
         <input type="text" id="Name" autoComplete="off"></input>
         <label htmlFor="Role">Search by role:</label>
@@ -41,7 +41,7 @@ export const EmployeeTileContainer = ({
           ))}
         </select>
       </form>
-      <article className="tile-container">
+      <article className="tile-container__tiles">
         {filteredEmployees.map((emp) => {
           return <EmployeeTile employee={emp} key={emp.id} />;
         })}
