@@ -2,13 +2,13 @@ import "./Button.scss";
 
 type buttonProps = {
   label: string;
-  handleClick: ()=>void;
+  handleClick: () => void;
 };
 
-export const Button = ({label, handleClick}:buttonProps) => {
+export const Button = ({ label, handleClick }: buttonProps) => {
   return (
     <button onClick={handleClick} className="button">
-      {label}
+      <img src={label} className="button__image"/>
     </button>
   );
 };

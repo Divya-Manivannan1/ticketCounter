@@ -1,0 +1,8 @@
+.tile {
+  background-color: rgb(69, 240, 203);
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr 5fr;
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.2rem lightgrey;
+}/*# sourceMappingURL=EmployeeTile.css.map */

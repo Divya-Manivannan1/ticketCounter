@@ -1,13 +1,11 @@
 @use "../../assets/styles/variables.scss" as *;
 
 .tile {
-  background-color: $accent-color;
+ background-color: $accent-color;
   padding: 1rem;
-
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr 5fr;
 
   border-radius: 0.5rem;
-  box-shadow: 0.2rem 0.2rem;
+  box-shadow: 0.2rem 0.2rem $shadow-color;
 }

@@ -37,13 +37,15 @@ export const EmployeeTileContainer = ({
         <label htmlFor="Role">Search by role:</label>
         <select id="Role">
           {jobTitles.map((str, index) => (
-            <option value={index}>{str}</option>
+            <option value={index} key={index}>
+              {str}
+            </option>
           ))}
         </select>
       </form>
       <article className="tile-container__tiles">
-        {filteredEmployees.map((emp) => {
-          return <EmployeeTile employee={emp} key={emp.id} />;
+        {filteredEmployees.map((emp, index) => {
+          return <EmployeeTile employee={emp} key={index} />;
         })}
       </article>
     </main>
