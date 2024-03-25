@@ -1,8 +1,12 @@
+@use "./assets/styles/variables.scss" as *;
 
+* {
+  color: $text-color;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
-*{
-    color:$text-color;
+  margin: 0;
+  padding: 0;
 }
 body {
-  background-color: #96d4d4;
+  background-color: $background-color;
 }

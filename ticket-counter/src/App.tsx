@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Ticket Counter</h1>
+      <h1 className="app__heading">Ticket Counter</h1>
       <EmployeeTileContainer employees={team} jobTitles={jobTitles} />
     </div>
   );

@@ -1,22 +1,27 @@
 @use "../../assets/styles/variables.scss" as *;
 
-
 .ticket-counter {
-  table,
-  td {
-    border: 1px solid $accent-color;
-    border-collapse: collapse;
-  }
-  td {
-    background-color: $background-color;
-    &:first-of-type {
-      width: 75%;
-    }
-    &:nth-of-type(2) {
-      width: 25%;
-    }
-  }
-  table {
+  display: grid;
+  grid-template: 1fr 1fr 4fr/1fr 1fr;
+  gap: 0.5rem;
+
+  &__table {
     width: 100%;
+    grid-area: 3/1/4/3;
+
+    border-collapse: collapse;
+
+    td {
+      border: 1px solid $accent-color;
+
+      background-color: $background-color;
+      padding: 0.5rem;
+      &:first-of-type {
+        width: 75%;
+      }
+      &:nth-of-type(2) {
+        width: 25%;
+      }
+    }
   }
 }
