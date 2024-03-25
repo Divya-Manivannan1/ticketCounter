@@ -1,27 +1,64 @@
 import { useState } from "react";
 import "./TicketCounter.scss";
+import { Button } from "../Button/Button";
 
 export const TicketCounter = () => {
-  const [counter, setCounter] = useState<number>(0);
-  const handleDecrementCounter = () => {
-    counter > 0 ? setCounter(counter - 1) : 0;
+  const [totalTickets, setTotalTickets] = useState<number>(0);
+  const [closedTickets, setClosedTickets] = useState<number>(0);
+
+  const handleNewTicket = () => {
+    setTotalTickets(totalTickets + 1);
   };
-  const handleIncrementCounter = () => {
-    setCounter(counter + 1);
+  const handleCloseTicket = () => {
+    setClosedTickets(closedTickets + 1);
+  };
+
+  const handleRemoveOpenTicket = () => {
+    setTotalTickets(totalTickets - 1);
+  };
+
+  const handleReopenTicket = () => {
+    setClosedTickets(closedTickets - 1);
   };
 
   return (
     <div className="ticket-counter">
-      <p>Tickets</p>
-      <div className="counter-container">
-      <button onClick={handleDecrementCounter} className="button button-down">
-        D
-      </button>
-      <p>{counter}</p>
-      <button onClick={handleIncrementCounter} className="button button-down">
-        I
-      </button>
-      </div>
+      <Button label="Add a new ticket" handleClick={handleNewTicket} />
+      {totalTickets - closedTickets > 0 ? (
+        <Button label="Close a ticket" handleClick={handleCloseTicket} />
+      ) : (
+        <span />
+      )}
+      {totalTickets - closedTickets > 0 ? (
+        <Button
+          label="Remove an open ticket"
+          handleClick={handleRemoveOpenTicket}
+        />
+      ) : (
+        <span />
+      )}
+      {closedTickets > 0 ? (
+        <Button
+          label="Reopen a closed ticket"
+          handleClick={handleReopenTicket}
+        />
+      ) : (
+        <span />
+      )}
+      <table>
+        <tr>
+          <td>Open tickets:</td>
+          <td>{totalTickets - closedTickets}</td>
+        </tr>
+        <tr>
+          <td>Closed tickets:</td>
+          <td>{closedTickets}</td>
+        </tr>
+        <tr>
+          <td>Total tickets:</td>
+          <td>{totalTickets}</td>
+        </tr>
+      </table>
     </div>
   );
 };

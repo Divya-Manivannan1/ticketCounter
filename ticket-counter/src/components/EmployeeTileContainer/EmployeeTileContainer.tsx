@@ -17,15 +17,15 @@ export const EmployeeTileContainer = () => {
   );
 
   return (
-    <div className="tickets-display">
-      <div className="search-options">
+    <main className="tickets-display">
+      <article className="search-options">
         <input type="text" name="search by name" onChange={handleInput}></input>
-      </div>
-      <div className="tile-container">
+      </article>
+      <article className="tile-container">
         {filteredEmployees.map((emp) => {
           return <EmployeeTile employee={emp} key={emp.id} />;
         })}
-      </div>
-    </div>
+      </article>
+    </main>
   );
 };

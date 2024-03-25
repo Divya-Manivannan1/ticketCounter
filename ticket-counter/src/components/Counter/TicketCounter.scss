@@ -1,8 +1,21 @@
-.counter-container {
-  display: flex;
-  justify-content: space-evenly;
-}
 .ticket-counter {
   background-color: aqua;
-  text-align: center;
+
+  table,
+  td {
+    border: 1px solid white;
+    border-collapse: collapse;
+  }
+  td {
+    background-color: #96d4d4;
+    &:first-of-type {
+      width: 75%;
+    }
+    &:nth-of-type(2) {
+      width: 25%;
+    }
+  }
+  table {
+    width: 100%;
+  }
 }
