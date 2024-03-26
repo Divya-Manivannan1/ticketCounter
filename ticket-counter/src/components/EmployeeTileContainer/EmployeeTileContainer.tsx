@@ -28,20 +28,32 @@ export const EmployeeTileContainer = ({
       emp.role.toLowerCase().includes(jobTitles[searchInput[1]].toLowerCase())
     );
   }
+  filteredEmployees = filteredEmployees.sort((emp1, emp2) =>
+    emp1.name < emp2.name ? -1 : emp1.name > emp2.name ? 1 : 0
+  );
 
   return (
     <main className="tile-container">
       <form className="tile-container__form" onChange={handleInput}>
-        <label htmlFor="Name">Search by name:</label>
-        <input type="text" id="Name" autoComplete="off"></input>
-        <label htmlFor="Role">Search by role:</label>
-        <select id="Role">
-          {jobTitles.map((str, index) => (
-            <option value={index} key={index}>
-              {str}
-            </option>
-          ))}
-        </select>
+        <label htmlFor="Name">
+          Search by name:
+          <input
+            type="text"
+            id="Name"
+            autoComplete="off"
+            className="tile-container__name-input"
+          ></input>
+        </label>
+        <label htmlFor="Role">
+          Search by role:
+          <select id="Role" className="tile-container__role-input">
+            {jobTitles.map((str, index) => (
+              <option value={index} key={index}>
+                {str}
+              </option>
+            ))}
+          </select>
+        </label>
       </form>
       <article className="tile-container__tiles">
         {filteredEmployees.map((emp, index) => {
