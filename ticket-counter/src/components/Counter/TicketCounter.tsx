@@ -31,18 +31,26 @@ export const TicketCounter = () => {
 
   return (
     <div className="ticket-counter">
-      <Button label={open} handleClick={handleNewTicket} status="active" />
       <Button
+        label={open}
+        handleClick={handleNewTicket}
+        status="active"
+        tooltipContent="Open a new ticket"
+      />
+      <Button
+        tooltipContent="Close an open ticket"
         label={close}
         handleClick={handleCloseTicket}
         status={closeStatus}
       />
       <Button
+        tooltipContent="Delete an open ticket"
         label={trash}
         handleClick={handleRemoveOpenTicket}
         status={deleteStatus}
       />
       <Button
+        tooltipContent="Reopen closed ticket"
         label={reopen}
         handleClick={handleReopenTicket}
         status={reopenStatus}
