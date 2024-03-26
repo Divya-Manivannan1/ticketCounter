@@ -6,13 +6,18 @@
   border: none;
   padding: 0.5rem;
 
-  &:hover {
-    border: 1px solid $background-color;
-    cursor: pointer;
-  }
-
   &__image {
     height: 1.5rem;
     aspect-ratio: 1;
+  }
+
+  &--active {
+    &:hover {
+      cursor: pointer;
+
+      .button__image {
+        height: 1.8rem;
+      }
+    }
   }
 }

@@ -2,26 +2,46 @@
 
 .ticket-counter {
   display: grid;
-  grid-template: 1fr 2fr / repeat(4, 1fr);
+  grid-template: repeat(3, 1fr) / repeat(4, 1fr);
   gap: 1rem;
+  text-align: center;
 
-  &__table {
-    width: 100%;
-    grid-area: 2/1/3/-1;
-
-    border-collapse: collapse;
-
-    td {
-      border: 1px solid $accent-color;
-
-      background-color: $background-color;
-      padding: 0.5rem;
-      &:first-of-type {
-        width: 75%;
-      }
-      &:nth-of-type(2) {
-        width: 25%;
-      }
+  &__open {
+    grid-area: 2/1/3/3;
+    .ticket-counter__counter {
+      color: green;
     }
   }
+
+  &__closed {
+    grid-area: 2/3/3/5;
+    .ticket-counter__counter {
+      color: red;
+    }
+  }
+
+  &__total {
+    grid-area: 3/1/4/5;
+    .ticket-counter__counter {
+      color: black;
+    }
+  }
+
+  &__counter {
+    font-size: 2rem;
+  }
+
+  /* 
+  &__open {
+    grid-area: 1/1/2/3;
+  }
+
+  &__closed {
+    grid-area: 1/3/2/5;
+  }
+
+  &__total {
+    grid-area: 2/1/3/5;
+  }
+ */
 }

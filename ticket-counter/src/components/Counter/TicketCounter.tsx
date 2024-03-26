@@ -25,27 +25,45 @@ export const TicketCounter = () => {
     closedTickets > 0 ? setClosedTickets(closedTickets - 1) : 0;
   };
 
+  const closeStatus = totalTickets - closedTickets > 0 ? "active" : "disabled";
+  const deleteStatus = totalTickets - closedTickets > 0 ? "active" : "disabled";
+  const reopenStatus = closedTickets > 0 ? "active" : "disabled";
+
   return (
     <div className="ticket-counter">
-      <Button label={open} handleClick={handleNewTicket} />
-      <Button label={close} handleClick={handleCloseTicket} />
-      <Button label={trash} handleClick={handleRemoveOpenTicket} />
-      <Button label={reopen} handleClick={handleReopenTicket} />
+      <Button label={open} handleClick={handleNewTicket} status="active" />
+      <Button
+        label={close}
+        handleClick={handleCloseTicket}
+        status={closeStatus}
+      />
+      <Button
+        label={trash}
+        handleClick={handleRemoveOpenTicket}
+        status={deleteStatus}
+      />
+      <Button
+        label={reopen}
+        handleClick={handleReopenTicket}
+        status={reopenStatus}
+      />
 
-      <table className="ticket-counter__table">
-        <tbody>
-          <td>Open tickets:</td>
-          <td>{totalTickets - closedTickets}</td>
-        </tbody>
-        <tbody>
-          <td>Closed tickets:</td>
-          <td>{closedTickets}</td>
-        </tbody>
-        <tbody>
-          <td>Total tickets:</td>
-          <td>{totalTickets}</td>
-        </tbody>
-      </table>
+      <div className="ticket-counter__open">
+        <p className="ticket-counter__counter">
+          {totalTickets - closedTickets}
+        </p>
+        <p>Open tickets:</p>
+      </div>
+
+      <div className="ticket-counter__closed">
+        <p className="ticket-counter__counter">{closedTickets}</p>
+        <p>Closed tickets:</p>
+      </div>
+
+      <div className="ticket-counter__total">
+        <p className="ticket-counter__counter">{totalTickets}</p>
+        <p>Total tickets:</p>
+      </div>
     </div>
   );
 };
