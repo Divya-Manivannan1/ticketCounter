@@ -1,8 +1,23 @@
 @use "../../assets/styles/variables.scss" as *;
 
-button {
-  background-color: $text-color;
+.button {
+  background-color: $accent-color;
   border-radius: 0.5rem;
-  color: $background-color;
   border: none;
+  padding: 0.5rem;
+
+  &__image {
+    height: 1.5rem;
+    aspect-ratio: 1;
+  }
+
+  &--active {
+    &:hover {
+      cursor: pointer;
+
+      .button__image {
+        height: 1.8rem;
+      }
+    }
+  }
 }
