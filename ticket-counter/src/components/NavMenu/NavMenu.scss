@@ -1,0 +1,55 @@
+@use "../../assets/styles/_variables" as *;
+
+.nav-menu {
+  background-color: $background-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+
+  .nav-menu__content {
+    opacity: 1;
+    background-color: $accent-color;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-menu__cross {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    height: 4rem;
+    aspect-ratio: 1;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .nav-menu__item {
+    font-size: 1.875rem;
+    text-decoration: none;
+    color: $text-color;
+    padding: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .nav-menu__content {
+      position: relative;
+      width: 30%;
+      height: 80%;
+      border-radius: 1rem;
+    }
+  }
+}

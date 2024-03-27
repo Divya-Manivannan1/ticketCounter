@@ -3,6 +3,7 @@ import "./App.scss";
 import { EmployeeTileContainer } from "./containers/EmployeeTileContainer/EmployeeTileContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { EmployeeProfile } from "./containers/EmployeeProfile/EmployeeProfile";
+import Nav from "./components/Nav/Nav";
 
 function App() {
   const jobTitles: string[] = ["Any"];
@@ -15,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        <h1 className="app__heading">Ticket Counter</h1>
+        <Nav />
         <Routes>
           <Route
             path="/"

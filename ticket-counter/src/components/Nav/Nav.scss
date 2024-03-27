@@ -1,0 +1,19 @@
+@use "../../assets/styles/_variables" as *;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3.125rem;
+  color: $text-color;
+
+  .nav__item {
+    height: 1.875rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    grid-column: 1 / -1;
+  }
+}
