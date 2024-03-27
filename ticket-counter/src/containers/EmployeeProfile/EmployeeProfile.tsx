@@ -1,11 +1,18 @@
+import { useParams } from "react-router-dom";
 import { Employee } from "../../types/teamType";
 import "./EmployeeProfile.scss";
 
 type EmployeeTileProps = {
-  employee: Employee;
+  employees: Employee[];
 };
 
-export const EmployeeProfile = ({ employee }: EmployeeTileProps) => {
+export const EmployeeProfile = ({ employees }: EmployeeTileProps) => {
+  const { empId } = useParams();
+
+  const employee = employees.find((emp) => emp.id === Number(empId));
+
+  if (employee === undefined) return <p>Employee not found</p>;
+
   return (
     <div className="profile">
       <div className="profile__data">

@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Employee } from "../../types/teamType";
-import { EmployeeTile } from "../EmployeeTile/EmployeeTile";
+import { EmployeeTile } from "../../components/EmployeeTile/EmployeeTile";
 import "./EmployeeTileContainer.scss";
 
 type EmployeeTileContainerProps = {

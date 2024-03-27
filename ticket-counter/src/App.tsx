@@ -1,6 +1,8 @@
 import { team } from "./data/team";
 import "./App.scss";
-import { EmployeeTileContainer } from "./components/EmployeeTileContainer/EmployeeTileContainer";
+import { EmployeeTileContainer } from "./containers/EmployeeTileContainer/EmployeeTileContainer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { EmployeeProfile } from "./containers/EmployeeProfile/EmployeeProfile";
 
 function App() {
   const jobTitles: string[] = ["Any"];
@@ -11,10 +13,23 @@ function App() {
   });
 
   return (
-    <div className="app">
-      <h1 className="app__heading">Ticket Counter</h1>
-      <EmployeeTileContainer employees={team} jobTitles={jobTitles} />
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <h1 className="app__heading">Ticket Counter</h1>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <EmployeeTileContainer employees={team} jobTitles={jobTitles} />
+            }
+          />
+          <Route
+            path="/employee-profile/:empId"
+            element={<EmployeeProfile employees={team} />}
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
