@@ -16,11 +16,15 @@ const NavMenu = ({ onClose }: NavMenuProps) => {
           className="nav-menu__cross"
           onClick={onClose}
         />
-        <Link to="/" className="nav-menu__item" onClick={onClose}>
+        <Link to="/ticketCounter/" className="nav-menu__item" onClick={onClose}>
           Home
         </Link>
 
-        <Link to="/counter" className="nav-menu__item" onClick={onClose}>
+        <Link
+          to="/ticketCounter/counter"
+          className="nav-menu__item"
+          onClick={onClose}
+        >
           Ticket Counters
         </Link>
       </div>

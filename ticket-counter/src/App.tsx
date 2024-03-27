@@ -6,33 +6,25 @@ import { EmployeeProfile } from "./containers/EmployeeProfile/EmployeeProfile";
 import Nav from "./components/Nav/Nav";
 
 function App() {
-  
-
   return (
-    <BrowserRouter basename="/ticketCounter">
+    <BrowserRouter>
       <div className="app">
         <Nav />
         <Routes>
           <Route
-            path="/"
+            path="/ticketCounter/"
             element={
-              <EmployeeTileContainer
-                employees={team}
-                displayCounter={false}
-              />
+              <EmployeeTileContainer employees={team} displayCounter={false} />
             }
           />
           <Route
-            path="/counter"
+            path="/ticketCounter/counter"
             element={
-              <EmployeeTileContainer
-                employees={team}
-                displayCounter={true}
-              />
+              <EmployeeTileContainer employees={team} displayCounter={true} />
             }
           />
           <Route
-            path="/employee-profile/:empId"
+            path="/ticketCounter/employee-profile/:empId"
             element={<EmployeeProfile employees={team} />}
           />
         </Routes>
