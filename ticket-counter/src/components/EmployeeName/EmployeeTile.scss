@@ -3,8 +3,9 @@
 .tile {
   background-color: $accent-color;
   padding: 1rem;
-  display: grid;
-  grid-template-rows: 1fr 1fr 5fr;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 
   border-radius: 0.5rem;
   box-shadow: 0.2rem 0.2rem $shadow-color;

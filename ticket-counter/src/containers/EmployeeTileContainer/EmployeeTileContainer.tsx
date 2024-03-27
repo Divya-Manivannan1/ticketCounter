@@ -1,16 +1,19 @@
 import { FormEvent, useState } from "react";
 import { Employee } from "../../types/teamType";
-import { EmployeeTile } from "../EmployeeTile/EmployeeTile";
+import { EmployeeTile } from "../../components/EmployeeTile/EmployeeTile";
 import "./EmployeeTileContainer.scss";
+import { EmployeeName } from "../../components/EmployeeName/EmployeeTile";
 
 type EmployeeTileContainerProps = {
   employees: Employee[];
   jobTitles: string[];
+  displayCounter: boolean;
 };
 
 export const EmployeeTileContainer = ({
   employees,
   jobTitles,
+  displayCounter,
 }: EmployeeTileContainerProps) => {
   const [searchInput, setSearchInput] = useState<[string, number]>(["", 0]);
 
@@ -56,9 +59,13 @@ export const EmployeeTileContainer = ({
         </label>
       </form>
       <article className="tile-container__tiles">
-        {filteredEmployees.map((emp, index) => {
-          return <EmployeeTile employee={emp} key={index} />;
-        })}
+        {displayCounter
+          ? filteredEmployees.map((emp, index) => {
+              return <EmployeeTile employee={emp} key={index} />;
+            })
+          : filteredEmployees.map((emp, index) => {
+              return <EmployeeName employee={emp} key={index} />;
+            })}
       </article>
     </main>
   );

@@ -1,6 +1,6 @@
 import { Employee } from "../types/teamType";
 
-export const team: Employee[] = [
+export const team:Employee[] = [
   {
     id: 1,
     name: "Alima Miller",
