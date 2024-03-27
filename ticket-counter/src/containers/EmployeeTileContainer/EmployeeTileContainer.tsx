@@ -2,7 +2,7 @@ import { FormEvent, useState } from "react";
 import { Employee } from "../../types/teamType";
 import { EmployeeTile } from "../../components/EmployeeTile/EmployeeTile";
 import "./EmployeeTileContainer.scss";
-import { EmployeeName } from "../../components/EmployeeName/EmployeeTile";
+import { EmployeeName } from "../../components/EmployeeName/EmployeeName";
 
 type EmployeeTileContainerProps = {
   employees: Employee[];
@@ -31,9 +31,9 @@ export const EmployeeTileContainer = ({
       emp.role.toLowerCase().includes(jobTitles[searchInput[1]].toLowerCase())
     );
   }
-  filteredEmployees = filteredEmployees.sort((emp1, emp2) =>
+  /* filteredEmployees = filteredEmployees.sort((emp1, emp2) =>
     emp1.name < emp2.name ? -1 : emp1.name > emp2.name ? 1 : 0
-  );
+  ); */
 
   return (
     <main className="tile-container">

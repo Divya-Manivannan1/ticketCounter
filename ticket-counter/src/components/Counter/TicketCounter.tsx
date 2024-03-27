@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./TicketCounter.scss";
 import { Button } from "../Button/Button";
 import trash from "../../assets/images/trash-can-regular.svg";
@@ -6,9 +6,25 @@ import open from "../../assets/images/plus-solid.svg";
 import close from "../../assets/images/xmark-solid.svg";
 import reopen from "../../assets/images/rotate-left-solid.svg";
 
-export const TicketCounter = () => {
-  const [totalTickets, setTotalTickets] = useState<number>(0);
-  const [closedTickets, setClosedTickets] = useState<number>(0);
+type ticketCounterProps = {
+  empID: number;
+};
+export const TicketCounter = ({ empID }: ticketCounterProps) => {
+  const [totalTickets, setTotalTickets] = useState<number>(
+    localStorage.getItem(`total${empID}`)
+      ? Number(localStorage.getItem(`total${empID}`))
+      : 0
+  );
+  const [closedTickets, setClosedTickets] = useState<number>(
+    localStorage.getItem(`closed${empID}`)
+      ? Number(localStorage.getItem(`closed${empID}`))
+      : 0
+  );
+
+  useEffect(() => {
+    localStorage.setItem(`total${empID}`, `${totalTickets}`);
+    localStorage.setItem(`closed${empID}`, `${closedTickets}`);
+  }, [totalTickets, closedTickets]);
 
   const handleNewTicket = () => {
     setTotalTickets(totalTickets + 1);

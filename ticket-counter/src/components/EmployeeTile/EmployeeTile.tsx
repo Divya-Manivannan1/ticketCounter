@@ -14,7 +14,7 @@ export const EmployeeTile = ({ employee }: EmployeeTileProps) => {
         <h2>{employee.name}</h2>
       </Link>
       <h3>{employee.role}</h3>
-      <TicketCounter />
+      <TicketCounter empID={employee.id} />
     </div>
   );
 };
