@@ -21,7 +21,21 @@ function App() {
           <Route
             path="/"
             element={
-              <EmployeeTileContainer employees={team} jobTitles={jobTitles} />
+              <EmployeeTileContainer
+                employees={team}
+                jobTitles={jobTitles}
+                displayCounter={false}
+              />
+            }
+          />
+          <Route
+            path="/counter"
+            element={
+              <EmployeeTileContainer
+                employees={team}
+                jobTitles={jobTitles}
+                displayCounter={true}
+              />
             }
           />
           <Route

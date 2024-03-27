@@ -21,7 +21,7 @@ const NavMenu = ({ onClose }: NavMenuProps) => {
         </Link>
 
         <Link to="/counter" className="nav-menu__item" onClick={onClose}>
-          Counters
+          Ticket Counters
         </Link>
       </div>
     </div>
