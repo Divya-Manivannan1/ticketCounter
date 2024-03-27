@@ -1,12 +1,8 @@
 @use "../../assets/styles/_variables.scss" as *;
 
-.tile {
+.name-tile {
   background-color: $accent-color;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-
   border-radius: 0.5rem;
   box-shadow: 0.2rem 0.2rem $shadow-color;
 }

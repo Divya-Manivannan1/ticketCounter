@@ -2,17 +2,15 @@ import { FormEvent, useState } from "react";
 import { Employee } from "../../types/teamType";
 import { EmployeeTile } from "../../components/EmployeeTile/EmployeeTile";
 import "./EmployeeTileContainer.scss";
-import { EmployeeName } from "../../components/EmployeeName/EmployeeTile";
+import { EmployeeName } from "../../components/EmployeeName/EmployeeName";
 
 type EmployeeTileContainerProps = {
   employees: Employee[];
-  jobTitles: string[];
   displayCounter: boolean;
 };
 
 export const EmployeeTileContainer = ({
   employees,
-  jobTitles,
   displayCounter,
 }: EmployeeTileContainerProps) => {
   const [searchInput, setSearchInput] = useState<[string, number]>(["", 0]);
@@ -26,6 +24,12 @@ export const EmployeeTileContainer = ({
   let filteredEmployees: Employee[] = employees.filter((emp) =>
     emp.name.toLowerCase().includes(searchInput[0].toLowerCase())
   );
+  const jobTitles: string[] = ["Any"];
+  filteredEmployees.forEach((emp) => {
+    if (!jobTitles.includes(emp.role)) {
+      jobTitles.push(emp.role);
+    }
+  });
   if (searchInput[1] != 0) {
     filteredEmployees = filteredEmployees.filter((emp) =>
       emp.role.toLowerCase().includes(jobTitles[searchInput[1]].toLowerCase())
