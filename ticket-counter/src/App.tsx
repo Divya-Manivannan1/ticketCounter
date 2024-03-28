@@ -1,35 +1,35 @@
 import { team } from "./data/team";
 import "./App.scss";
 import { EmployeeTileContainer } from "./containers/EmployeeTileContainer/EmployeeTileContainer";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { EmployeeProfile } from "./containers/EmployeeProfile/EmployeeProfile";
 import Nav from "./components/Nav/Nav";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app">
         <Nav />
         <Routes>
           <Route
-            path="/ticketCounter/"
+            path="/"
             element={
               <EmployeeTileContainer employees={team} displayCounter={false} />
             }
           />
           <Route
-            path="/ticketCounter/counter"
+            path="/counter"
             element={
               <EmployeeTileContainer employees={team} displayCounter={true} />
             }
           />
           <Route
-            path="/ticketCounter/employee-profile/:empId"
+            path="/employee-profile/:empId"
             element={<EmployeeProfile employees={team} />}
           />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

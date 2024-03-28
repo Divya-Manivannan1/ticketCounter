@@ -9,7 +9,7 @@ type EmployeeNameProps = {
 export const EmployeeName = ({ employee }: EmployeeNameProps) => {
   return (
     <div className="name-tile">
-      <Link to={`/ticketCounter/employee-profile/${employee.id}`}>
+      <Link to={`/employee-profile/${employee.id}`}>
         <h2>{employee.name}</h2>
       </Link>
     </div>

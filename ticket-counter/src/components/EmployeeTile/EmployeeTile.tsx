@@ -10,7 +10,7 @@ type EmployeeTileProps = {
 export const EmployeeTile = ({ employee }: EmployeeTileProps) => {
   return (
     <div className="tile">
-      <Link to={`/ticketCounter/employee-profile/${employee.id}`}>
+      <Link to={`/employee-profile/${employee.id}`}>
         <h2>{employee.name}</h2>
       </Link>
       <h3>{employee.role}</h3>
