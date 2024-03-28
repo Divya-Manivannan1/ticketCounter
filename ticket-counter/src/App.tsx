@@ -7,7 +7,7 @@ import Nav from "./components/Nav/Nav";
 
 function App() {
   return (
-    <BrowserRouter basename="ticketCounter/">
+    <BrowserRouter basename="/ticketCounter">
       <div className="app">
         <Nav />
         <Routes>
