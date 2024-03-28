@@ -1,13 +1,13 @@
 import { team } from "./data/team";
 import "./App.scss";
 import { EmployeeTileContainer } from "./containers/EmployeeTileContainer/EmployeeTileContainer";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { EmployeeProfile } from "./containers/EmployeeProfile/EmployeeProfile";
 import Nav from "./components/Nav/Nav";
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter basename="ticketCounter/">
       <div className="app">
         <Nav />
         <Routes>
@@ -29,7 +29,7 @@ function App() {
           />
         </Routes>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
