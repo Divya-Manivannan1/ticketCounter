@@ -2,26 +2,36 @@
 
 .profile {
   background-color: $accent-color;
+  max-width: 75vw;
 
   display: flex;
   flex-direction: column-reverse;
-  gap: 2rem;
+  justify-content: space-evenly;
   align-items: center;
 
-  width: fit-content;
-  margin: auto;
-  padding: 1rem;
+  margin: 5rem auto;
+  padding: 2rem;
 
   border-radius: 0.5rem;
   box-shadow: 0.2rem 0.2rem $shadow-color;
 
+  &__data {
+    width: 50%;
+    text-indent: 2rem;
+  }
+
   &__tech {
-    text-indent: 25%;
     list-style-type: none;
   }
 
   &__name {
     text-align: center;
+    text-indent: 0;
+  }
+
+  &__heading {
+    font-weight: bold;
+    text-indent: 0;
   }
 
   @media screen and (min-width: 768px) {

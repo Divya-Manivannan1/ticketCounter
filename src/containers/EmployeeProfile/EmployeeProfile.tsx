@@ -16,14 +16,17 @@ export const EmployeeProfile = ({ employees }: EmployeeTileProps) => {
   return (
     <div className="profile">
       <div className="profile__data">
-        <h2 className="profile__name">{employee.name}</h2>
-        <p className="profile__role">{`Designation: ${employee.role}`}</p>
-        <p className="profile__dept">{`Department: ${employee.profile.department}`}</p>
-        <p className="profile__exp">{`Experience: ${employee.profile.experience}`}</p>
-        <p>{`Tech Stack:`}</p>
+        <h2 className="profile__name">{employee.name}</h2> <br />
+        <p className="profile__heading">Designation: </p>
+        <p className="profile__role">{employee.role}</p>{" "}
+        <p className="profile__heading">Department: </p>
+        <p className="profile__dept">{employee.profile.department}</p>{" "}
+        <p className="profile__heading">Experience: </p>
+        <p className="profile__exp">{employee.profile.experience}</p>
+        <p className="profile__heading">Tech Stack: </p>
         <ul className="profile__tech">
-          {employee.profile.techstack.map((tech) => (
-            <li>{tech}</li>
+          {employee.profile.techstack.map((tech, index) => (
+            <li key={index}>{tech}</li>
           ))}
         </ul>
       </div>
