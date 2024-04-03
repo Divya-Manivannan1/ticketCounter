@@ -3,7 +3,6 @@ import { Employee } from "../../types/teamType";
 import { EmployeeTile } from "../../components/EmployeeTile/EmployeeTile";
 import "./EmployeeTileContainer.scss";
 import { EmployeeName } from "../../components/EmployeeName/EmployeeName";
-import Input from "../../components/Input/Input";
 
 type EmployeeTileContainerProps = {
   employees: Employee[];
@@ -14,28 +13,37 @@ export const EmployeeTileContainer = ({
   employees,
   displayCounter,
 }: EmployeeTileContainerProps) => {
-  const [searchInput, setSearchInput] = useState<[string, number]>(["", 0]);
+  const [searchInput, setSearchInput] = useState<[string, string]>(["", "Any"]);
 
   const handleInput = (event: FormEvent<HTMLFormElement>) => {
     const name = event.currentTarget.Name.value.toLowerCase();
-    const role = event.currentTarget.Role.value.toLowerCase();
+    const role = event.currentTarget.Role.value;
     setSearchInput([name, role]);
   };
 
+  //filtering employees based on name
   let filteredEmployees: Employee[] = employees.filter((emp) =>
     emp.name.toLowerCase().includes(searchInput[0].toLowerCase())
   );
-  const jobTitles: string[] = ["Any"];
+
+  //depending on the filtered employees, getting the dropdown list
+  const jobTitles: string[] = [searchInput[1]];
   filteredEmployees.forEach((emp) => {
     if (!jobTitles.includes(emp.role)) {
       jobTitles.push(emp.role);
     }
   });
-  if (searchInput[1] != 0) {
+
+  //filtering the results based on role
+  if (searchInput[1] != "Any") {
     filteredEmployees = filteredEmployees.filter((emp) =>
-      emp.role.toLowerCase().includes(jobTitles[searchInput[1]].toLowerCase())
+      emp.role.includes(searchInput[1])
     );
+    //adding any to the role options
+    jobTitles.push("Any");
   }
+
+  //sorting the filtered result
   filteredEmployees = filteredEmployees.sort((emp1, emp2) =>
     emp1.name < emp2.name ? -1 : emp1.name > emp2.name ? 1 : 0
   );
@@ -43,8 +51,25 @@ export const EmployeeTileContainer = ({
   return (
     <main className="tile-container">
       <form className="tile-container__form" onChange={handleInput}>
-        <Input id="Name" />
-        <Input id="Role" />
+        <label htmlFor="Name">
+          Search by name:
+          <input
+            type="text"
+            id="Name"
+            autoComplete="off"
+            className="tile-container__name-input"
+          ></input>
+        </label>
+        <label htmlFor="Role">
+          Search by role:
+          <select id="Role" className="tile-container__role-input">
+            {jobTitles.map((str, index) => (
+              <option value={str} key={index}>
+                {str}
+              </option>
+            ))}
+          </select>
+        </label>
       </form>
       <article className="tile-container__tiles">
         {displayCounter
