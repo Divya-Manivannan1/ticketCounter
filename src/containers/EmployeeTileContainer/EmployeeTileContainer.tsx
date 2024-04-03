@@ -3,6 +3,7 @@ import { Employee } from "../../types/teamType";
 import { EmployeeTile } from "../../components/EmployeeTile/EmployeeTile";
 import "./EmployeeTileContainer.scss";
 import { EmployeeName } from "../../components/EmployeeName/EmployeeName";
+import Input from "../../components/Input/Input";
 
 type EmployeeTileContainerProps = {
   employees: Employee[];
@@ -42,25 +43,8 @@ export const EmployeeTileContainer = ({
   return (
     <main className="tile-container">
       <form className="tile-container__form" onChange={handleInput}>
-        <label htmlFor="Name">
-          Search by name:
-          <input
-            type="text"
-            id="Name"
-            autoComplete="off"
-            className="tile-container__name-input"
-          ></input>
-        </label>
-        <label htmlFor="Role">
-          Search by role:
-          <select id="Role" className="tile-container__role-input">
-            {jobTitles.map((str, index) => (
-              <option value={index} key={index}>
-                {str}
-              </option>
-            ))}
-          </select>
-        </label>
+        <Input id="Name" />
+        <Input id="Role" />
       </form>
       <article className="tile-container__tiles">
         {displayCounter
