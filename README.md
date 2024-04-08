@@ -1,30 +1,14 @@
-# React + TypeScript + Vite
+# Ticket counter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## User stories
 
-Currently, two official plugins are available:
+- As an employee I want to keep a count of all the tickets I have completed so that I can manage my workflow.
+- As an employee I want to be able to track the number of tickets my coworkers have completed so that I can compare the number of tickets we complete.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Special features
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Used routing to add a home page with all the employee names, a ticket counter page with the counters, and an employee profile page.
+- A working filter that filters employees based on name and role.
+- Open, closed and total tickets shown for each employee using two states that keep track of All tickets and Open tickets.
+- Functioning buttons to open a ticket, close a ticket, reopen a ticket, and delete an open ticket.
+- The values of the counter are maintained after rerendering the page using useEffect and localStorage.
